@@ -7,6 +7,7 @@ interface cardBoxProps {
   title: string;
   rightSection?: JSX.Element;
   headerColor?: boolean;
+  innerSpace?: number;
 };
 
 export default function CardBox(props: cardBoxProps) {
@@ -19,7 +20,7 @@ export default function CardBox(props: cardBoxProps) {
         </div>
         {props?.rightSection && <div className='rightHeader'>{props?.rightSection}</div>}
       </div>
-      <div className='boxBody'>
+      <div className='boxBody' style={{ 'padding': props?.innerSpace }}>
         {props?.children}
       </div>
     </div>

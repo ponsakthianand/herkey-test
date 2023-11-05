@@ -18,6 +18,9 @@ function App() {
   const [collapsed, setCollapsed] = useState(false);
   const [breadCrumbsList, setBreadCrumbsList] = useState(breadCrumbsDefaultList);
 
+  console.log('rrrrr', screens);
+
+
   const sideMenuClickHandle = (value: string) => {
     const breadCrumbs: breadCrumbItem[] = [...breadCrumbsDefaultList, { title: sideMenu[+value]?.label }];
     const navicationPath: string = sideMenu[+value]?.path;
