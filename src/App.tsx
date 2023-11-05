@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Routes, useNavigate, Route } from 'react-router-dom';
 import './App.scss';
-import { Layout, Grid, Breadcrumb } from 'antd';
-import { breadCrumbsDefaultList, sideMenu } from './utils/commonUtils';
+import { Layout, Grid } from 'antd';
+import { breadCrumbsDefaultList, sampleUserData, sideMenu } from './utils/commonUtils';
 import MyAccount from './pages/myAccount/myAccount';
 import CommonComponent from './pages/commonPage/commonPage';
-import { breadCrumbItem } from './interfaces/typeInterfaces';
+import { SideMenuItem, breadCrumbItem } from './utils/interfaces/typeInterfaces';
 import HeaderSection from './layout/headerSeaction/headerSection';
 import SideNavigation from './layout/sideNavigation/sideNavigation';
 import BreadCrumbsArea from './layout/breadCrumbArea/breadCrumbs';
@@ -16,9 +16,10 @@ const { useBreakpoint } = Grid;
 function App() {
   const screens = useBreakpoint();
   const navigate = useNavigate();
-  const [collapsed, setCollapsed] = useState(false);
-  const [breadCrumbsList, setBreadCrumbsList] = useState(breadCrumbsDefaultList);
+  const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [breadCrumbsList, setBreadCrumbsList] = useState<breadCrumbItem[]>(breadCrumbsDefaultList);
   const isLargeScreen: boolean | undefined = screens?.lg;
+  let tempNavigationCompoent: any[] = [];
 
   const sideMenuClickHandle = (value: string) => {
     const breadCrumbs: breadCrumbItem[] = [...breadCrumbsDefaultList, { title: sideMenu[+value]?.label }];
@@ -31,9 +32,14 @@ function App() {
     setCollapsed(!collapsed);
   };
 
+  sideMenu?.forEach((nav: SideMenuItem, index: number) => {
+    const navRoute = <Route path={`/${nav.path}`} element={<CommonComponent title={nav.label} />} key={index} />;
+    tempNavigationCompoent.push(navRoute);
+  });
+
   return (
     <Layout className='App'>
-      <HeaderSection userName='DC' collapseHandle={collapseHandle} collapsed={collapsed} screenLarge={isLargeScreen} />
+      <HeaderSection userName={sampleUserData.avatarLetter} collapseHandle={collapseHandle} collapsed={collapsed} screenLarge={isLargeScreen} />
       <Layout hasSider>
         <SideNavigation collapseHandle={collapseHandle} collapsed={collapsed} sideMenuClickHandle={sideMenuClickHandle} screenLarge={isLargeScreen} />
         <Layout>
@@ -42,7 +48,7 @@ function App() {
             <Routes>
               <Route path="/" element={<MyAccount />} />
               <Route path="/my-account" element={<MyAccount />} />
-              <Route path="/jobs" element={<CommonComponent />} />
+              {tempNavigationCompoent}
             </Routes>
           </Content>
         </Layout>

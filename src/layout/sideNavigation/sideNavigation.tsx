@@ -1,7 +1,7 @@
 import React from 'react';
 import './sideNavigation.scss';
 import { Drawer, Layout, Menu } from 'antd';
-import { sideMenu } from '../../utils/commonUtils';
+import { sampleUserData, sideMenu } from '../../utils/commonUtils';
 import ProfileAvatar from '../../commonComponents/profileAvatar/profileAvatar';
 
 const { Sider } = Layout;
@@ -16,9 +16,9 @@ interface sideNavProps {
 export default function SideNavigation(props: sideNavProps) {
   const sideNavigationBig = <Sider trigger={null} collapsible collapsed={props?.collapsed} className='siderStyle' width={300}>
     <div className='sideNavAvator'>
-      <ProfileAvatar size={50} userName='DC' />
+      <ProfileAvatar size={50} userName={sampleUserData.avatarLetter} />
       <div className='helloName'>
-        <span>Hello,</span> Divya!
+        <span>Hello,</span> {sampleUserData.name}!
       </div>
     </div>
     <Menu

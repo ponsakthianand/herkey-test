@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import CardBox from '../../commonComponents/cardBox/cardBox';
 import ProfileAvatar from '../../commonComponents/profileAvatar/profileAvatar';
+import { sampleUserData } from '../../utils/commonUtils';
 const { useBreakpoint } = Grid;
 
 export default function MyAccount() {
@@ -39,7 +40,7 @@ export default function MyAccount() {
                   <Row gutter={[8, 8]}>
                     <Col xs={24} sm={24} md={6} lg={5} xl={3}>
                       <div className='avators'>
-                        <ProfileAvatar size={100} userName='' />
+                        <ProfileAvatar size={100} userName={sampleUserData.avatarLetter} />
                         <div className='editIcon'>
                           <EditFilled onClick={() => console.log()} />
                         </div>
@@ -47,17 +48,17 @@ export default function MyAccount() {
                     </Col>
                     <Col xs={24} sm={24} md={18} lg={19} xl={21}>
                       <div className='proInfo'>
-                        <h3>Divya Chatarjee</h3>
+                        <h3>{sampleUserData.name}</h3>
                         <div className='subHead'>Designation</div>
-                        <p>Assistant Manager - HR</p>
+                        <p>{sampleUserData.jobPosition}</p>
                         <div className='subHead'>Company name</div>
-                        <p>XYZ Company Name</p>
+                        <p>{sampleUserData.companyName}</p>
                       </div>
                     </Col>
                     <Col span={24}>
                       <div className='aboutMe'>
                         <div className='subHead'>About Me</div>
-                        <p>Microsoft enables digital transformation for the era of an intelligent cloud and an intelligent edge. Its mission is to empower every person and every organization on the planet to achieve more.</p>
+                        <p>{sampleUserData.about}</p>
                       </div>
                     </Col>
                   </Row>
@@ -68,15 +69,15 @@ export default function MyAccount() {
                   <Row gutter={[8, 8]}>
                     <Col span={12}>
                       <div className='subHead'>Full Name*</div>
-                      <p>Divya Chatarjee</p>
+                      <p>{sampleUserData.name}</p>
                     </Col>
                     <Col span={12}>
                       <div className='subHead'>Designation</div>
-                      <p>Assistant Manager - HR</p>
+                      <p>{sampleUserData.jobPosition}</p>
                     </Col>
                     <Col span={12}>
                       <div className='subHead'>Phone / Landline*</div>
-                      <p>1234567890</p>
+                      <p>{sampleUserData.telephone}</p>
                     </Col>
                     <Col span={12}>
                       <div className='subHead'>Security</div>
@@ -95,7 +96,7 @@ export default function MyAccount() {
                       <div className='subHead'>Receive job application via</div>
                       <Radio.Group>
                         <Space direction="vertical" className='readioSection'>
-                          <Radio value={1}>Only on my dashboard</Radio>
+                          <Radio value={1} checked>Only on my dashboard</Radio>
                           <Radio value={2}>Email and Dashboard</Radio>
                         </Space>
                       </Radio.Group>

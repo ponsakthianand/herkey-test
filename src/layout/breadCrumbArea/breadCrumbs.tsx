@@ -1,6 +1,6 @@
 import React from 'react';
 import './breadCrumbs.scss';
-import { breadCrumbItem } from '../../interfaces/typeInterfaces';
+import { breadCrumbItem } from '../../utils/interfaces/typeInterfaces';
 import { Breadcrumb } from 'antd';
 import { MainMenuList } from '../../utils/commonUtils';
 
