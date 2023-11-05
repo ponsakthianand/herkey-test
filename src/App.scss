@@ -1,0 +1,91 @@
+.App {
+  height: 100vh;
+  .headerStyle {
+    background-color: #fff;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    .headerBrand {
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .brandLogo {
+        height: 64px;
+        padding: 10px 0px 10px 10px;
+        cursor: pointer;
+      }
+    }
+    .headerNavigation {
+      margin-left: 50px;
+      width: calc(100% - 425px);
+      .headerNavigationList {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li {
+          padding: 0;
+          margin: 0 10px;
+          display: inline-block;
+          text-transform: uppercase;
+        }
+      }
+    }
+    .headerProfile {
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .dropdownAvatar {
+        cursor: pointer;
+      }
+    }
+  }
+  .breadCrumbs {
+    padding: 15px 0 0 20px;
+    li {
+      a[href] {
+        color: rgba(0, 0, 0, 0.45);
+      }
+      .ant-breadcrumb-link {
+        color: #2680eb;
+      }
+    }
+  }
+  .contentStyle {
+    text-align: center;
+    line-height: 120px;
+    color: #000;
+    background-color: #fff;
+    margin: 20px;
+  }
+
+  .siderStyle {
+    text-align: center;
+    line-height: 120px;
+    background-color: #404040;
+    .ant-menu-light,
+    .ant-menu-dark {
+      background-color: transparent !important;
+    }
+    .ant-menu-item {
+      margin-inline: 0;
+      width: 100%;
+      text-align: left;
+      &.ant-menu-item-selected {
+        background-color: #313131;
+        color: #99ca3b;
+        position: relative;
+        border-radius: 0;
+        &::before {
+          content: "";
+          width: 5px;
+          background: #99ca3b;
+          position: absolute;
+          height: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+}
