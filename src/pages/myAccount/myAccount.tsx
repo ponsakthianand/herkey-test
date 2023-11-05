@@ -12,7 +12,6 @@ const { useBreakpoint } = Grid;
 export default function MyAccount() {
   const navigate = useNavigate();
   const screens = useBreakpoint();
-  console.log('rrrr', screens);
   return (
     <ConfigProvider
       theme={{
@@ -33,12 +32,12 @@ export default function MyAccount() {
     >
       <Row>
         <Col span={24}>
-          <CardBox title='My Account' headerColor={false} leftSection={<ArrowLeftOutlined onClick={() => { navigate(`/`); }} />} innerSpace={0}>
+          <CardBox title='My Account' headerColor={false} leftSection={<ArrowLeftOutlined onClick={() => { navigate(`/`); }} />} innerSpace={(screens?.lg) ? 20 : 0}>
             <Row gutter={[8, 8]}>
               <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                 <CardBox title='My Profile' headerColor={true} rightSection={<EditFilled onClick={() => console.log()} />}>
                   <Row gutter={[8, 8]}>
-                    <Col xs={24} sm={6} md={4} lg={3} xl={3}>
+                    <Col xs={24} sm={24} md={6} lg={5} xl={3}>
                       <div className='avators'>
                         <ProfileAvatar size={100} userName='' />
                         <div className='editIcon'>
@@ -46,7 +45,7 @@ export default function MyAccount() {
                         </div>
                       </div>
                     </Col>
-                    <Col xs={24} sm={18} md={20} lg={21} xl={21}>
+                    <Col xs={24} sm={24} md={18} lg={19} xl={21}>
                       <div className='proInfo'>
                         <h3>Divya Chatarjee</h3>
                         <div className='subHead'>Designation</div>

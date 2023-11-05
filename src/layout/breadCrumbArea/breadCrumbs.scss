@@ -1,0 +1,36 @@
+.breadCrumbs {
+  padding: 15px 0 0 20px;
+  li {
+    a[href] {
+      color: rgba(0, 0, 0, 0.45);
+    }
+    .ant-breadcrumb-link {
+      color: #2680eb;
+    }
+  }
+}
+.breadNavigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #fff;
+  box-shadow: 0px 3px 5px rgb(0 0 0 / 20%);
+  .breadNavigationList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    text-decoration: none;
+    li {
+      padding: 10px;
+      margin: 0 10px;
+      position: relative;
+      &:not(:last-child):after {
+        content: "|";
+        color: #e0e4eb;
+        position: absolute;
+        right: -10px;
+      }
+    }
+  }
+}

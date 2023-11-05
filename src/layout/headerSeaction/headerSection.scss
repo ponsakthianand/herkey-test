@@ -3,7 +3,9 @@
   display: flex;
   padding: 0;
   align-items: center;
-  box-shadow: 0px 3px 5px #d2d3d7;
+  box-shadow: 0px 3px 5px rgb(0 0 0 / 20%);
+  position: relative;
+  z-index: 1;
   .headerBrand {
     width: 300px;
     display: flex;
@@ -29,6 +31,14 @@
         text-transform: uppercase;
       }
     }
+    .brandLogo {
+      height: 64px;
+      padding: 10px 0px 10px 10px;
+      cursor: pointer;
+      // &.small {
+      //   height: 30px;
+      // }
+    }
   }
   .headerProfile {
     width: 100px;
@@ -37,6 +47,34 @@
     align-items: center;
     .dropdownAvatar {
       cursor: pointer;
+    }
+  }
+  &.small {
+    .headerBrand {
+      width: 10%;
+      display: flex;
+      justify-content: center;
+      .sideNavCollapseIcon {
+        .iconsSection {
+          font-size: 20px;
+        }
+      }
+    }
+    .headerNavigation {
+      margin-left: 0;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .brandLogo {
+        height: 64px;
+        padding: 10px 0px 10px 10px;
+        cursor: pointer;
+      }
+    }
+    .headerProfile {
+      width: 10%;
+      margin-right: 10px;
     }
   }
 }

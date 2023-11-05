@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Routes, useNavigate, Route } from 'react-router-dom';
 import './App.scss';
-import { Layout, Grid, Drawer, Breadcrumb } from 'antd';
+import { Layout, Grid, Breadcrumb } from 'antd';
 import { breadCrumbsDefaultList, sideMenu } from './utils/commonUtils';
 import MyAccount from './pages/myAccount/myAccount';
 import CommonComponent from './pages/commonPage/commonPage';
 import { breadCrumbItem } from './interfaces/typeInterfaces';
 import HeaderSection from './layout/headerSeaction/headerSection';
 import SideNavigation from './layout/sideNavigation/sideNavigation';
+import BreadCrumbsArea from './layout/breadCrumbArea/breadCrumbs';
 
 const { Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -17,9 +18,7 @@ function App() {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [breadCrumbsList, setBreadCrumbsList] = useState(breadCrumbsDefaultList);
-
-  console.log('rrrrr', screens);
-
+  const isLargeScreen: boolean | undefined = screens?.lg;
 
   const sideMenuClickHandle = (value: string) => {
     const breadCrumbs: breadCrumbItem[] = [...breadCrumbsDefaultList, { title: sideMenu[+value]?.label }];
@@ -34,12 +33,11 @@ function App() {
 
   return (
     <Layout className='App'>
-      <HeaderSection userName='DC' collapseHandle={collapseHandle} collapsed={collapsed} />
+      <HeaderSection userName='DC' collapseHandle={collapseHandle} collapsed={collapsed} screenLarge={isLargeScreen} />
       <Layout hasSider>
-        <SideNavigation collapsed={collapsed} sideMenuClickHandle={sideMenuClickHandle} />
-        <Drawer></Drawer>
+        <SideNavigation collapseHandle={collapseHandle} collapsed={collapsed} sideMenuClickHandle={sideMenuClickHandle} screenLarge={isLargeScreen} />
         <Layout>
-          <Breadcrumb items={breadCrumbsList} className='breadCrumbs' />
+          <BreadCrumbsArea breadCrumbsList={breadCrumbsList} screenLarge={isLargeScreen} />
           <Content className='contentStyle'>
             <Routes>
               <Route path="/" element={<MyAccount />} />
