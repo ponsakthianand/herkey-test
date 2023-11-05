@@ -43,7 +43,7 @@ export default function SideNavigation(props: sideNavProps) {
     <div className='sideNavAvator'>
       <ProfileAvatar size={50} userName='DC' />
       <div className='helloName'>
-        <span>Hello,</span> Divya!
+        <span>Hello,</span> {sampleUserData.name}!
       </div>
     </div>
     <Menu
