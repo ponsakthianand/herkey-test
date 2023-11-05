@@ -1,0 +1,36 @@
+.avators {
+  position: relative;
+  .editIcon {
+    background-color: #fff;
+    color: #99ca3b;
+    border: 1px solid #ebedf2;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
+  }
+}
+.subHead {
+  font-size: 12px;
+  color: #b2b2b2;
+}
+
+h3 {
+  margin: 0 0 15px;
+}
+
+p {
+  margin: 3px 0 15px;
+}
+
+.ant-radio-group {
+  margin-top: 15px;
+  + .subHead {
+    margin-top: 10px;
+  }
+}

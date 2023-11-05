@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { Routes, useNavigate, Route, Link } from 'react-router-dom';
+import { Routes, useNavigate, Route } from 'react-router-dom';
 import './App.scss';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined
 } from '@ant-design/icons';
-import { Layout, Menu, Button, Dropdown, Grid, Drawer, Avatar, Breadcrumb } from 'antd';
+import { Layout, Menu, Button, Dropdown, Grid, Drawer, Breadcrumb } from 'antd';
 import logo from './media/images/brand/logo.png'
 import { MainMenuList, breadCrumbsDefaultList, items, sideMenu } from './utils/commonUtils';
-import MyAccount from './pages/myAccount';
-import CommonComponent from './pages/common/common';
+import MyAccount from './pages/myAccount/myAccount';
+import CommonComponent from './pages/commonPage/commonPage';
 import { breadCrumbItem } from './interfaces/typeInterfaces';
+import ProfileAvatar from './commonComponents/profileAvatar/profileAvatar';
 
 const { Header, Sider, Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -48,14 +49,18 @@ function App() {
         </div>
         <div className='headerProfile'>
           <Dropdown menu={{ items }} trigger={['hover']} className='dropdownAvatar'>
-            <Avatar size={'large'}>
-              D
-            </Avatar>
+            <div><ProfileAvatar size={40} /></div>
           </Dropdown>
         </div>
       </Header>
       <Layout hasSider>
         <Sider trigger={null} collapsible collapsed={collapsed} className='siderStyle' width={300}>
+          <div className='sideNavAvator'>
+            <ProfileAvatar size={50} />
+            <div className='helloName'>
+              <span>Hello,</span> Divya!
+            </div>
+          </div>
           <Menu
             theme='dark'
             mode="inline"
