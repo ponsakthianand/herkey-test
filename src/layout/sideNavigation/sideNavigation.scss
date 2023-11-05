@@ -1,0 +1,56 @@
+.siderStyle {
+  text-align: center;
+  background: #404040 !important;
+  &.ant-layout-sider-collapsed {
+    display: inline;
+    .sideNavAvator {
+      .helloName {
+        transition:
+          opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+          margin 0.3s,
+          color 0.3s;
+        opacity: 0;
+      }
+    }
+  }
+  .sideNavAvator {
+    display: flex;
+    padding: 15px;
+    .helloName {
+      color: #fff;
+      padding-left: 10px;
+      text-align: left;
+      opacity: 1;
+      span {
+        font-size: 30px;
+        display: block;
+      }
+    }
+  }
+  .contactUs {
+    color: #99ca3b;
+  }
+  .ant-menu-light,
+  .ant-menu-dark {
+    background-color: transparent !important;
+  }
+  .ant-menu-item {
+    margin-inline: 0;
+    width: 100%;
+    text-align: left;
+    &.ant-menu-item-selected {
+      background-color: #313131;
+      color: #99ca3b;
+      position: relative;
+      border-radius: 0;
+      &::before {
+        content: "";
+        width: 5px;
+        background: #99ca3b;
+        position: absolute;
+        height: 100%;
+        left: 0;
+      }
+    }
+  }
+}

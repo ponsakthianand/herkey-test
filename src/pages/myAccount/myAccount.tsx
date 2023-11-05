@@ -37,7 +37,7 @@ export default function MyAccount() {
                   <Row gutter={[8, 8]}>
                     <Col span={3}>
                       <div className='avators'>
-                        <ProfileAvatar size={100} />
+                        <ProfileAvatar size={100} userName='' />
                         <div className='editIcon'>
                           <EditFilled onClick={() => console.log()} />
                         </div>
