@@ -16,7 +16,7 @@ export default function ModelCreateForm(props: ModelProps) {
     <Modal
       open={props.open}
       title="Update Profile"
-      okText="Create"
+      okText="Update"
       cancelText="Cancel"
       onCancel={props.onCancel}
       onOk={() => {
