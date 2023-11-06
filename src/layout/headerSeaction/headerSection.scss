@@ -50,6 +50,12 @@
     }
   }
   &.small {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
     .headerBrand {
       width: 10%;
       display: flex;

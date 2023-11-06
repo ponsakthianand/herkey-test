@@ -5,10 +5,11 @@ import { Layout, Grid } from 'antd';
 import { breadCrumbsDefaultList, sampleUserData, sideMenu } from './utils/commonUtils';
 import MyAccount from './pages/myAccount/myAccount';
 import CommonComponent from './pages/commonPage/commonPage';
-import { SideMenuItem, breadCrumbItem } from './utils/interfaces/typeInterfaces';
+import { SideMenuItem, StateObjects, breadCrumbItem } from './utils/interfaces/typeInterfaces';
 import HeaderSection from './layout/headerSeaction/headerSection';
 import SideNavigation from './layout/sideNavigation/sideNavigation';
 import BreadCrumbsArea from './layout/breadCrumbArea/breadCrumbs';
+import { useSelector } from 'react-redux';
 
 const { Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -20,6 +21,7 @@ function App() {
   const [breadCrumbsList, setBreadCrumbsList] = useState<breadCrumbItem[]>(breadCrumbsDefaultList);
   const isLargeScreen: boolean | undefined = screens?.lg;
   let tempNavigationCompoent: any[] = [];
+  const currentUser = useSelector((state: StateObjects) => state.userPersonalData);
 
   const sideMenuClickHandle = (value: string) => {
     const breadCrumbs: breadCrumbItem[] = [...breadCrumbsDefaultList, { title: sideMenu[+value]?.label }];
@@ -39,9 +41,9 @@ function App() {
 
   return (
     <Layout className='App'>
-      <HeaderSection userName={sampleUserData.avatarLetter} collapseHandle={collapseHandle} collapsed={collapsed} screenLarge={isLargeScreen} />
+      <HeaderSection userName={currentUser.avatarLetter} collapseHandle={collapseHandle} collapsed={collapsed} screenLarge={isLargeScreen} />
       <Layout hasSider>
-        <SideNavigation collapseHandle={collapseHandle} collapsed={collapsed} sideMenuClickHandle={sideMenuClickHandle} screenLarge={isLargeScreen} />
+        <SideNavigation collapseHandle={collapseHandle} collapsed={collapsed} sideMenuClickHandle={sideMenuClickHandle} screenLarge={isLargeScreen} currentUserData={currentUser} />
         <Layout>
           <BreadCrumbsArea breadCrumbsList={breadCrumbsList} screenLarge={isLargeScreen} />
           <Content className='contentStyle'>

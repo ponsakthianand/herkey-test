@@ -9,7 +9,7 @@ import {
   TeamOutlined,
   UserOutlined
 } from '@ant-design/icons';
-import { SideMenuItem, breadCrumbItem, userData } from './interfaces/typeInterfaces';
+import { SideMenuItem, breadCrumbItem, usersProfileData } from './interfaces/typeInterfaces';
 import type { MenuProps } from 'antd';
 
 export enum MainMenu {
@@ -96,12 +96,12 @@ export const breadCrumbsDefaultList: breadCrumbItem[] = [
   }
 ];
 
-export const sampleUserData: userData = {
+export const sampleUserData: usersProfileData = {
   name: 'Divya Chatarjee',
   avatarLetter: 'DC',
   jobPosition: 'Assistant Manager - HR',
   about: 'Microsoft enables digital transformation for the era of an intelligent cloud and an intelligent edge. Its mission is to empower every person and every organization on the planet to achieve more.',
   telephone: '1234567890',
   companyName: 'XYZ Company Name',
-  mailSetting: 1
+  mailSetting: 'dashboard'
 }

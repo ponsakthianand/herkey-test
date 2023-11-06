@@ -1,3 +1,7 @@
+export interface StateObjects {
+  userPersonalData: usersProfileData;
+}
+
 export interface SideMenuItem {
   key: string;
   icon: JSX.Element;
@@ -10,12 +14,12 @@ export interface breadCrumbItem {
   href?: string;
 }
 
-export interface userData {
+export interface usersProfileData {
   name: string;
   avatarLetter: string;
   jobPosition: string;
   about: string;
   telephone: string;
   companyName: string;
-  mailSetting: number;
+  mailSetting: string;
 }

@@ -10,12 +10,16 @@
           margin 0.3s,
           color 0.3s;
         opacity: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
   .sideNavAvator {
     display: flex;
     padding: 15px;
+    // min-height: 100px;
     .helloName {
       color: #fff;
       padding-left: 10px;
