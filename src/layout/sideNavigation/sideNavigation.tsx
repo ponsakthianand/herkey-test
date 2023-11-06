@@ -43,7 +43,7 @@ export default function SideNavigation(props: sideNavProps) {
     className='siderStyle'
   >
     <div className='sideNavAvator'>
-      <ProfileAvatar size={50} userName='DC' />
+      <ProfileAvatar size={50} userName={props.currentUserData.avatarLetter} />
       <div className='helloName'>
         <span>Hello,</span> {props.currentUserData.name}!
       </div>
